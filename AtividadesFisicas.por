@@ -1,3 +1,4 @@
+
 programa
 {
 	// Nicolas Goncalves Cafarete
@@ -24,7 +25,7 @@ programa
         {
             limpa()
             escreva("======================================\n")
-            escreva("      Menu de Registro de Atividades\n")
+            escreva("|   Menu de Registro de Atividades   |\n")
             escreva("======================================\n")
             escreva("1. Registrar Nova Atividade\n")
             escreva("2. Exibir Resumo de Atividades\n")
@@ -108,7 +109,7 @@ programa
 
         limpa()
         escreva("======================================\n")
-        escreva("       Registrar Nova Atividade\n")
+        escreva("|      Registrar Nova Atividade      |\n")
         escreva("======================================\n")
 
         titulo_atividade[contador_registros] = ler_cadeia_nao_vazia("Digite um título para a atividade: ")
@@ -176,57 +177,135 @@ programa
     }
 
     funcao exibir_resumo()
+{
+    se (contador_registros == 0)
     {
-        se (contador_registros == 0)
-        {
-            limpa()
-            escreva("Não há atividades registradas ainda.\n")
-            retorne
-        }
-
         limpa()
-        escreva("======================================\n")
-        escreva("       Resumo de Atividades\n")
-        escreva("======================================\n")
-        escreva("Total de atividades: ", contador_registros, "\n\n")
+        escreva("==========================================\n")
+        escreva("|       NENHUMA ATIVIDADE REGISTRADA     |  \n")
+        escreva("==========================================\n")
+        retorne
+    }
 
-        real soma_calorias = 0
-        real soma_tempo = 0
-        inteiro soma_freq = 0
-        real soma_ritmo = 0
+    limpa()
+    escreva("==========================================\n")
+    escreva("|         RESUMO DE ATIVIDADES           |  \n")
+    escreva("==========================================\n")
+    escreva("TOTAL DE ATIVIDADES: ", contador_registros, "\n")
+
+    cadeia tipos[5]
+    tipos[0] = "Corrida"
+    tipos[1] = "Musculação"
+    tipos[2] = "Yoga"
+    tipos[3] = "Natação"
+    tipos[4] = "Caminhada"
+
+    real soma_calorias = 0
+    real soma_tempo = 0
+    inteiro soma_freq = 0
+    real soma_ritmo = 0
+
+    // Mostrar por categoria somente se existir atividade
+    para (inteiro t = 0; t < 5; t++)
+    {
+        cadeia tipo_atual = tipos[t]
+        inteiro encontrou = 0
 
         para (inteiro i = 0; i < contador_registros; i++)
         {
-            escreva("Atividade #", i + 1, " - ", titulo_atividade[i], "\n")
-            escreva("Tipo: ", tipo_atividade[i], "\n")
-            escreva("Calorias: ", calorias[i], " kcal\n")
-
-            se (tempo_minutos[i] >= 60)
+            se (tipo_atividade[i] == tipo_atual)
             {
-                escreva("Tempo: ", m.arredondar(tempo_minutos[i]/60, 2), " horas\n")
+                encontrou = 1
+                pare
             }
-            senao
-            {
-                escreva("Tempo: ", tempo_minutos[i], " minutos\n")
-            }
-
-            escreva("F. Cardíaca Média: ", freq_cardiaca_media[i], " BPM\n")
-            se (ritmo_medio[i] > 0)
-            {
-                escreva("Ritmo Médio: ", ritmo_medio[i], "\n")
-            }
-            escreva("--------------------------------------\n")
-
-            soma_calorias = soma_calorias + calorias[i]
-            soma_tempo = soma_tempo + tempo_minutos[i]
-            soma_freq = soma_freq + freq_cardiaca_media[i]
-            soma_ritmo = soma_ritmo + ritmo_medio[i]
         }
 
-        escreva("\n--- Estatísticas Gerais ---\n")
-        escreva("Total de calorias queimadas: ", soma_calorias, " kcal\n")
-        escreva("Tempo médio por atividade: ", m.arredondar(soma_tempo / contador_registros, 2), " min\n")
-        escreva("Frequência cardíaca média: ", soma_freq / contador_registros, " BPM\n")
-        escreva("Ritmo médio geral: ", soma_ritmo / contador_registros, "\n")
+        se (encontrou == 1)
+        {
+            escreva("\n==========================================\n")
+            escreva("        ATIVIDADES - ", tipo_atual, "\n")
+            escreva("==========================================\n")
+
+            para (inteiro i = 0; i < contador_registros; i++)
+            {
+                se (tipo_atividade[i] == tipo_atual)
+                {
+                    escreva("Título:              ", titulo_atividade[i], "\n")
+                    escreva("Calorias:            ", calorias[i], " kcal\n")
+
+                    se (tempo_minutos[i] >= 60)
+                    {
+                        escreva("Tempo:               ", m.arredondar(tempo_minutos[i] / 60, 2), " horas\n")
+                    }
+                    senao
+                    {
+                        escreva("Tempo:               ", tempo_minutos[i], " minutos\n")
+                    }
+
+                    escreva("Frequência Cardíaca: ", freq_cardiaca_media[i], " BPM\n")
+
+                    se (ritmo_medio[i] > 0)
+                    {
+                        escreva("Ritmo/Peso Médio:    ", ritmo_medio[i], "\n")
+                    }
+
+                    escreva("------------------------------------------\n")
+
+                    // Acumuladores gerais
+                    soma_calorias = soma_calorias + calorias[i]
+                    soma_tempo = soma_tempo + tempo_minutos[i]
+                    soma_freq = soma_freq + freq_cardiaca_media[i]
+                    soma_ritmo = soma_ritmo + ritmo_medio[i]
+                }
+            }
+        }
     }
+
+    escreva("\n==========================================\n")
+    escreva("|         ESTATÍSTICAS GERAIS            | \n")
+    escreva("==========================================\n")
+
+    escreva("Total de calorias:        ", soma_calorias, " kcal\n")
+    escreva("Tempo médio por atividade:", m.arredondar(soma_tempo / contador_registros, 2), " min\n")
+    escreva("Frequência cardíaca média:", m.arredondar(soma_freq / contador_registros, 2), " BPM\n")
+    escreva("Ritmo/Peso médio geral:   ", m.arredondar(soma_ritmo / contador_registros, 2), "\n")
+
+    escreva("\n==========================================\n")
+    escreva("|  ESTATÍSTICAS POR TIPO DE ATIVIDADE    | \n")
+    escreva("==========================================\n")
+
+    // Estatísticas por tipo (somente se houver registro)
+    para (inteiro t = 0; t < 5; t++)
+    {
+        cadeia tipo = tipos[t]
+        inteiro qtd = 0
+        real total_cal = 0
+        real total_temp = 0
+        inteiro total_freq = 0
+        real total_ritmo = 0
+
+        para (inteiro i = 0; i < contador_registros; i++)
+        {
+            se (tipo_atividade[i] == tipo)
+            {
+                qtd = qtd + 1
+                total_cal = total_cal + calorias[i]
+                total_temp = total_temp + tempo_minutos[i]
+                total_freq = total_freq + freq_cardiaca_media[i]
+                total_ritmo = total_ritmo + ritmo_medio[i]
+            }
+        }
+
+        se (qtd > 0)
+        {
+            escreva("\n>>> ", tipo, " <<<\n")
+            escreva("Quantidade:              ", qtd, "\n")
+            escreva("Total de calorias:       ", total_cal, " kcal\n")
+            escreva("Tempo médio:             ", m.arredondar(total_temp / qtd, 2), " min\n")
+            escreva("Frequência cardíaca:     ", m.arredondar(total_freq / qtd, 2), " BPM\n")
+            escreva("Ritmo/Peso médio:        ", m.arredondar(total_ritmo / qtd, 2), "\n")
+        }
+    }
+}
+
 }
