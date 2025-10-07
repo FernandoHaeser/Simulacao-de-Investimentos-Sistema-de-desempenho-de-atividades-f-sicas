@@ -1,8 +1,10 @@
 programa
 {
+    // Incluindo a biblioteca matemática com prefixo m
+    inclua biblioteca Matematica --> m
+
     const inteiro MAX_REGISTROS = 100
 
-    // Vetores para armazenar os dados de cada atividade
     cadeia titulo_atividade[MAX_REGISTROS]
     cadeia tipo_atividade[MAX_REGISTROS]
     real calorias[MAX_REGISTROS]
@@ -15,6 +17,7 @@ programa
     funcao inicio()
     {
         inteiro opcao
+        cadeia opcao_sair
 
         enquanto (verdadeiro)
         {
@@ -35,6 +38,8 @@ programa
                     pare
                 caso 2:
                     exibir_resumo()
+                    escreva("\nDigite 0 para voltar ao menu: ")
+                    leia(opcao_sair)
                     pare
                 caso 3:
                     limpa()
@@ -46,7 +51,6 @@ programa
         }
     }
 
-    // Funções de validação
     funcao real ler_real_positivo(cadeia mensagem)
     {
         real valor
@@ -92,7 +96,6 @@ programa
         retorne texto
     }
 
-    // Função para registrar atividade
     funcao registrar_atividade()
     {
         se (contador_registros >= MAX_REGISTROS)
@@ -107,10 +110,8 @@ programa
         escreva("       Registrar Nova Atividade\n")
         escreva("======================================\n")
 
-        // Perguntar o título da atividade
         titulo_atividade[contador_registros] = ler_cadeia_nao_vazia("Digite um título para a atividade: ")
 
-        // Menu de tipos de atividade
         escreva("\nEscolha o tipo de atividade:\n")
         escreva("1. Corrida\n")
         escreva("2. Musculação\n")
@@ -142,7 +143,6 @@ programa
                 tipo_atividade[contador_registros] = "Outros"
         }
 
-        // Perguntas específicas dependendo do tipo
         se (tipo_atividade[contador_registros] == "Corrida" ou tipo_atividade[contador_registros] == "Caminhada")
         {
             ritmo_medio[contador_registros] = ler_real_positivo("Informe o ritmo médio (Km/h): ")
@@ -153,7 +153,7 @@ programa
         }
         senao se (tipo_atividade[contador_registros] == "Yoga")
         {
-            ritmo_medio[contador_registros] = 0 // Não aplicável
+            ritmo_medio[contador_registros] = 0
         }
         senao se (tipo_atividade[contador_registros] == "Natação")
         {
@@ -174,7 +174,6 @@ programa
         escreva("Atividade '", titulo_atividade[contador_registros-1], "' registrada com sucesso!\n")
     }
 
-    // Função para exibir resumo
     funcao exibir_resumo()
     {
         se (contador_registros == 0)
@@ -201,10 +200,9 @@ programa
             escreva("Tipo: ", tipo_atividade[i], "\n")
             escreva("Calorias: ", calorias[i], " kcal\n")
 
-            // Exibir tempo em horas caso > 60
             se (tempo_minutos[i] >= 60)
             {
-                escreva("Tempo: ", tempo_minutos[i]/60, " horas\n")
+                escreva("Tempo: ", m.arredondar(tempo_minutos[i]/60, 2), " horas\n")
             }
             senao
             {
@@ -226,7 +224,7 @@ programa
 
         escreva("\n--- Estatísticas Gerais ---\n")
         escreva("Total de calorias queimadas: ", soma_calorias, " kcal\n")
-        escreva("Tempo médio por atividade: ", soma_tempo / contador_registros, " min\n")
+        escreva("Tempo médio por atividade: ", m.arredondar(soma_tempo / contador_registros, 2), " min\n")
         escreva("Frequência cardíaca média: ", soma_freq / contador_registros, " BPM\n")
         escreva("Ritmo médio geral: ", soma_ritmo / contador_registros, "\n")
     }
