@@ -1,5 +1,6 @@
 programa
 {
+	// Fernando Haeser
     // Incluindo a biblioteca matemática com prefixo m
     inclua biblioteca Matematica --> m
 
