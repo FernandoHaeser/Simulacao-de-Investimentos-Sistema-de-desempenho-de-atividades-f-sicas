@@ -27,7 +27,7 @@ Este repositório foi desenvolvido para armazenar exercícios, trabalhos e proje
 
 ## Instalação do Portugol Studio
 
-### Windows
+- ### Windows
 
 1. **Baixe o instalador**
    - Acesse: [Download Portugol Studio](https://portugolstudio.sourceforge.io/)
@@ -39,7 +39,7 @@ Este repositório foi desenvolvido para armazenar exercícios, trabalhos e proje
 3. **Conclua a instalação**
    - Após finalizar, o Portugol Studio estará disponível no menu Iniciar.
 
-### Linux
+- ### Linux
 
 1. **Baixe o instalador**
    - Acesse: [Download Portugol Studio](https://portugolstudio.sourceforge.io/)
@@ -95,3 +95,4 @@ Sinta-se à vontade para abrir issues ou pull requests com sugestões, correçõ
 ## Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
