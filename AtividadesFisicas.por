@@ -1,6 +1,14 @@
 
 programa
 {
+	/*
+	 * Sistema de Registro de Atividades Físicas - Projeto de Aprendizagem
+	 * Autores: Fernando A. Haeser, Isadora S. Feijó, Nicolas G. Cafarete.
+	 * Data: Setembro/2025
+	 * Objetivo: Desenvolver uma aplicação para gerenciar e acompanhar atividades físicas,
+	 * permitindo registrar diferentes tipos de exercícios e visualizar estatísticas detalhadas.
+	 */
+
 	// Nicolas Goncalves Cafarete
     // Incluindo a biblioteca matemática com prefixo m
     inclua biblioteca Matematica --> m
