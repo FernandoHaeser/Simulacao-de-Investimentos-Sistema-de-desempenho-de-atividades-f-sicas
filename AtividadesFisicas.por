@@ -1,7 +1,7 @@
 programa
 {
     /*
-    * App de Controle de Atividades Fisicas - Projeto de Aprendizagem
+    * App de Controle de Atividades Físicas - Projeto de Aprendizagem
 	* Autores: Fernando A. Haeser, Isadora S. Feijó, Nicolas G. Cafarete.
 	* Data: Setembro/2025
     */
