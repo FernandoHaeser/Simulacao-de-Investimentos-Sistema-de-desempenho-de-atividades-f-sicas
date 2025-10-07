@@ -126,8 +126,7 @@ Aplicação para gerenciamento e acompanhamento de atividades físicas, com func
 trabalho-portugol-LPG/
 ├── AtividadesFisicas.por    # Sistema de registro de atividades físicas
 ├── Investimento.por          # Simulador de investimentos financeiros
-├── README.md                 # Documentação do projeto
-└── LICENSE                   # Licença do projeto
+└── README.md                 # Documentação do projeto
 ```
 
 > Cada arquivo `.por` contém um projeto completo e independente.
@@ -138,4 +137,4 @@ Sinta-se à vontade para abrir issues ou pull requests com sugestões, correçõ
 
 ## Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto é de código aberto e está disponível para fins educacionais.
