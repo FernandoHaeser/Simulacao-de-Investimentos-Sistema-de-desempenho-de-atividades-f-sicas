@@ -1,6 +1,6 @@
 programa
 {
-	// Fernando Haeser
+	// Exemplo PR e MR
     // Incluindo a biblioteca matemática com prefixo m
     inclua biblioteca Matematica --> m
 
