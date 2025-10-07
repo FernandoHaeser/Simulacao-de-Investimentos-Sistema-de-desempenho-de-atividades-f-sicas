@@ -1,7 +1,10 @@
 programa
 {
-	// Nicolas Goncalves Cafarete
-    // Incluindo a biblioteca matemática com prefixo m
+    /*
+    * App de Controle de Atividades Físicas - Projeto de Aprendizagem
+	* Autores: Fernando A. Haeser, Isadora S. Feijó, Nicolas G. Cafarete.
+	* Data: Setembro/2025
+    */
     inclua biblioteca Matematica --> m
 
     // Constante que define o máximo de registros possíveis
