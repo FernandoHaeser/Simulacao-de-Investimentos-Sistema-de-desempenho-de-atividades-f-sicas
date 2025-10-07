@@ -8,9 +8,9 @@ programa
      * monitorando seus resultados e demonstrando de forma simples e prática como o dinheiro pode render.
 	 */
 
-	inclua biblioteca Matematica --> m
+	inclua biblioteca Matematica --> m // Biblioteca Matematica incluída para facilitar calculos.
 
-	// 🔹 VARIÁVEIS GLOBAIS PARA SOMAR TODOS OS INVESTIMENTOS
+	// VARIÁVEIS GLOBAIS PARA SOMAR TODOS OS INVESTIMENTOS
 	real totalGeralInvestido = 0.0
 	real totalGeralJuros = 0.0
 	real totalGeralFinal = 0.0
@@ -33,8 +33,8 @@ programa
 
 			// --- Título e Boas-Vindas ---
 			escreva("╔════════════════════════════════════════════════╗\n")
-      		escreva("║       SIMULADOR BÁSICO DE INVESTIMENTOS        ║\n")
-      		escreva("╚════════════════════════════════════════════════╝\n")
+      escreva("║       SIMULADOR BÁSICO DE INVESTIMENTOS        ║\n")
+      escreva("╚════════════════════════════════════════════════╝\n")
 
 			escreva("➤ Olá! Vamos simular o crescimento do seu dinheiro!\n\n")
 		
@@ -52,33 +52,34 @@ programa
 			limpa()
 			// --- Estrutura Condicional (Comando Condicional - escolha) ---
 			escreva("╔══════════════════════════════════════════════════════════════════╗\n")
-      		escreva("║                💰 Tipos de Investimento 💰                      ║\n")
-      		escreva("╠══════════════════════════════════════════════════════════════════╣\n")
-      		escreva("║ 1 — Tesouro Selic (Taxa ≈ 10.5% a.a.)                            ║\n")
-      		escreva("║    → Investimento em que o investidor empresta dinheiro ao       ║\n")
-      		escreva("║      Governo Federal, recebendo juros em troca.                  ║\n")
-      		escreva("║    → Considerado o investimento mais seguro do país.             ║\n")
-      		escreva("║    → Risco: Muito baixo.                                         ║\n")
-      		escreva("╠──────────────────────────────────────────────────────────────────╣\n")
-      		escreva("║ 2 — Fundo Imobiliário (Taxa ≈ 9.0% a.a.)                         ║\n")
-      		escreva("║    → Investimento em cotas de empreendimentos imobiliários.      ║\n")
-      		escreva("║    → Lucros obtidos com aluguéis ou venda de imóveis.            ║\n")
-      		escreva("║    → Risco: Médio.                                               ║\n")
-      		escreva("╠──────────────────────────────────────────────────────────────────╣\n")
-      		escreva("║ 3 — CDB/LCI (Taxa ≈ 11.0% a.a.)                                  ║\n")
-      		escreva("║    → CDB: empresta dinheiro a um banco e recebe juros.           ║\n")
-      		escreva("║    → LCI: semelhante, voltada ao setor imobiliário, isenta de IR.║\n")
-      		escreva("║    → Proteção FGC até R$250 mil por instituição.                 ║\n")
-      		escreva("║    → Risco: Baixo.                                               ║\n")
-      		escreva("╠──────────────────────────────────────────────────────────────────╣\n")
-      		escreva("║ 4 — Outra Taxa (Definida pelo usuário)                           ║\n")
-      		escreva("║    → Permite simular qualquer taxa desejada.                     ║\n")
-      		escreva("║    → Risco: Depende da aplicação.                                ║\n")
-      		escreva("╚══════════════════════════════════════════════════════════════════╝\n")
-      		escreva("Digite a opção desejada (1 a 4): ")
+      escreva("║                💰 Tipos de Investimento 💰                      ║\n")
+      escreva("╠══════════════════════════════════════════════════════════════════╣\n")
+      escreva("║ 1 — Tesouro Selic (Taxa ≈ 10.5% a.a.)                            ║\n")
+      escreva("║    → Investimento em que o investidor empresta dinheiro ao       ║\n")
+      escreva("║      Governo Federal, recebendo juros em troca.                  ║\n")
+      escreva("║    → Considerado o investimento mais seguro do país.             ║\n")
+      escreva("║    → Risco: Muito baixo.                                         ║\n")
+      escreva("╠──────────────────────────────────────────────────────────────────╣\n")
+      escreva("║ 2 — Fundo Imobiliário (Taxa ≈ 9.0% a.a.)                         ║\n")
+      escreva("║    → Investimento em cotas de empreendimentos imobiliários.      ║\n")
+      escreva("║    → Lucros obtidos com aluguéis ou venda de imóveis.            ║\n")
+      escreva("║    → Risco: Médio.                                               ║\n")
+      escreva("╠──────────────────────────────────────────────────────────────────╣\n")
+      escreva("║ 3 — CDB/LCI (Taxa ≈ 11.0% a.a.)                                  ║\n")
+      escreva("║    → CDB: empresta dinheiro a um banco e recebe juros.           ║\n")
+      escreva("║    → LCI: semelhante, voltada ao setor imobiliário, isenta de IR.║\n")
+      escreva("║    → Proteção FGC até R$250 mil por instituição.                 ║\n")
+      escreva("║    → Risco: Baixo.                                               ║\n")
+      escreva("╠──────────────────────────────────────────────────────────────────╣\n")
+      escreva("║ 4 — Outra Taxa (Definida pelo usuário)                           ║\n")
+      escreva("║    → Permite simular qualquer taxa desejada.                     ║\n")
+      escreva("║    → Risco: Depende da aplicação.                                ║\n")
+      escreva("╚══════════════════════════════════════════════════════════════════╝\n")
+      escreva("Digite a opção desejada (1 a 4): ")
 			leia(opcaoInvestimento)
 
 			limpa()
+      // --- Estrutura Condicional (Comando Condicional - escolha) ---
       		escreva("╔═══════════════════════════════════════════════╗\n")
       		escreva("║         ESCOLHA DO INVESTIMENTO               ║\n")
       		escreva("╚═══════════════════════════════════════════════╝\n\n")
@@ -107,6 +108,7 @@ programa
           			taxaAnual = 0.10
       		}
 
+          // --- Calculos para simulação de investimento ---
       		escreva("\n╔═══════════════════════════════════════════════╗\n")
       		escreva("║        INICIANDO SIMULAÇÃO DE INVESTIMENTO    ║\n")
       		escreva("╚═══════════════════════════════════════════════╝\n")
@@ -135,6 +137,7 @@ programa
 
       		real jurosGanhos = valorAtual - capitalTotalInvestido
 
+          // --- Todos os provaveis valores reunidos de acordo com a opção escolhida ---
       		escreva("\n╔═══════════════════════════════════════════════╗\n")
       		escreva("║              RESULTADO FINAL                  ║\n")
       		escreva("╚═══════════════════════════════════════════════╝\n")
@@ -159,10 +162,10 @@ programa
 			escreva("\n╔═══════════════════════════════════════════════╗\n")
 			escreva("║               RESUMO GERAL                     ║\n")
 			escreva("╚═══════════════════════════════════════════════╝\n")
-			escreva("Simulações realizadas: ", totalSimulacoes, "\n")
-			escreva("Total investido: R$ ", m.arredondar(totalGeralInvestido, 2), "\n")
-			escreva("Total em juros ganhos: R$ ", m.arredondar(totalGeralJuros, 2), "\n")
-			escreva("Total acumulado geral: R$ ", m.arredondar(totalGeralFinal, 2), "\n")
+			escreva("➤ Simulações realizadas: ", totalSimulacoes, "\n")
+			escreva("➤ Total investido: R$ ", m.arredondar(totalGeralInvestido, 2), "\n")
+			escreva("➤ Total em juros ganhos: R$ ", m.arredondar(totalGeralJuros, 2), "\n")
+			escreva("➤ Total acumulado geral: R$ ", m.arredondar(totalGeralFinal, 2), "\n")
 
 			// --- Pergunta se quer simular outro investimento ---
 			escreva("\nDeseja simular outro investimento? (1 - Sim / 2 - Não): ")
