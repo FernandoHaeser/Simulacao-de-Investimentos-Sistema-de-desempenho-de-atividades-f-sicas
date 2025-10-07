@@ -1,5 +1,6 @@
 programa
 {
+	// Nicolas Goncalves Cafarete
     // Incluindo a biblioteca matemática com prefixo m
     inclua biblioteca Matematica --> m
 
